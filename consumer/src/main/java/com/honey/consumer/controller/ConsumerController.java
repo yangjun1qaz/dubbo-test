@@ -18,8 +18,14 @@ public class ConsumerController {
     private ConsumerService consumerTest;
 
 
-    @GetMapping("/test")
-    public String test() {
-        return consumerTest.test();
+    @GetMapping("/getOrderList")
+    public String getOrderList() {
+        return consumerTest.getOrderList();
+    }
+
+
+    @GetMapping("/getUser")
+    public String getUser() {
+        return consumerTest.getUser();
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--服务名-->
+    <dubbo:application name="boot-dubbo-consumser"></dubbo:application>
+    <!--    注册中心  check 关闭注册中心启动时检查 (注册订阅失败时报错)-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"></dubbo:registry>
+
+    <dubbo:reference id="orderService" interface="com.honey.dubboapi.service.OrderService" check="false">
+        <dubbo:method name="getOrderDetails" timeout="1000" retries="2"></dubbo:method>
+    </dubbo:reference>
+</beans>

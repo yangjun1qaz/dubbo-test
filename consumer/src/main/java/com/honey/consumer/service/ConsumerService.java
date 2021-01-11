@@ -9,5 +9,6 @@ package com.honey.consumer.service;
 public interface ConsumerService {
 
 
-    public String test();
+    public String getOrderList();
+    public String getUser();
 }

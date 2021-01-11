@@ -10,14 +10,13 @@ import org.springframework.stereotype.Component;
  * @Author Brayden
  * @Version 1.0
  */
-@DubboService(version = "1.1.0",protocol = "dubbo")
+@DubboService(version = "1.1.0", protocol = "dubbo",loadbalance = "roundrobin")
 @Component
 public class UserServiceImpl1 implements UserService {
 
 
     @Override
     public String getUser() {
-        System.out.println("UserServiceImpl1");
-         return "my is UserServiceImpl1";
+        return "my name is brayden";
     }
 }

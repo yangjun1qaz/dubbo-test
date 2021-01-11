@@ -14,4 +14,11 @@ public interface OrderService {
      * @return
      */
     public String getOrderList();
+
+    /**
+     * 查询商品详情
+     *
+     * @return
+     */
+    public String getOrderDetails();
 }

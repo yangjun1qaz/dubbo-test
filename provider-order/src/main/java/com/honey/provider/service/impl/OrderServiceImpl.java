@@ -3,8 +3,7 @@ package com.honey.provider.service.impl;
 import com.honey.dubboapi.service.OrderService;
 import com.honey.dubboapi.service.UserService;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * @Description：
@@ -12,16 +11,22 @@ import org.springframework.stereotype.Component;
  * @Author Brayden
  * @Version 1.0
  */
-@DubboService(version = "1.1.0", protocol = "dubbo")
-@Component
+
+@Service
 public class OrderServiceImpl implements OrderService {
 
-    @DubboReference(version = "1.1.0",protocol = "dubbo")
+    @DubboReference(version = "1.1.0", protocol = "dubbo")
     private UserService userService;
 
     @Override
     public String getOrderList() {
-        System.out.println("OrderServiceImpl");
-        return userService.getUser();
+        return userService.getUser()+"的订单列表";
     }
+
+    @Override
+    public String getOrderDetails() {
+        return "我是商品详情";
+    }
+
+
 }
